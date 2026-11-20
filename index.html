@@ -527,11 +527,12 @@ function renderArchive() {
 cityFilter.onchange = monthFilter.onchange = renderArchive;
 renderArchive();
 const rows=[
- {id:'26433500080170000',street:'1001 McDonald Drive',city:'Garland',zip:'75041',value:301200,area:1785,year:1962,source:'https://plotcipher.com/property/1001-mcdonald-dr-garland-tx-75041-garland',sale:'2026-12-01'},
- {id:'36074500110100000',street:'1014 Nancy Lane',city:'Lancaster',zip:'75134',value:244680,area:1445,year:1978,source:'https://plotcipher.com/property/1014-nancy-ln-lancaster-tx-75134-lancaster',notice:'https://dallas.tx.publicsearch.us/doc/332163498',sale:'2026-12-01'}
+ {id:'26433500080170000',street:'1001 McDonald Drive',city:'Garland',zip:'75041',value:301200,area:1785,year:1962,beds:3,baths:2,source:'https://plotcipher.com/property/1001-mcdonald-dr-garland-tx-75041-garland',sale:'2026-12-01'},
+ {id:'36074500110100000',street:'1014 Nancy Lane',city:'Lancaster',zip:'75134',value:244680,area:1445,year:1978,beds:3,baths:2,source:'https://plotcipher.com/property/1014-nancy-ln-lancaster-tx-75134-lancaster',notice:'https://dallas.tx.publicsearch.us/doc/332163498',sale:'2026-12-01'}
 ];
 const byId=id=>document.getElementById(id);
 const money=value=>value.toLocaleString('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0});
+const plural=(n,word)=>n+' '+word+(n===1?'':'s');
 const saleDate=r=>new Date(r.sale+'T12:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
 function load(key,fallback){try{return JSON.parse(localStorage.getItem('parcel-desk-'+key))??fallback}catch{return fallback}}
 function persist(key,value){try{localStorage.setItem('parcel-desk-'+key,JSON.stringify(value))}catch{}}
@@ -548,7 +549,7 @@ byId('watch').onclick=()=>{watchOnly=true;render()};byId('all').onclick=()=>{wat
 byId('cards').onclick=e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.save){const id=b.dataset.save;saved.has(id)?saved.delete(id):saved.add(id);persist('saved',[...saved]);render();(document.querySelector('[data-save="'+id+'"]')||byId('watch')).focus();}else openDetail(rows.find(r=>r.id===b.dataset.detail))};
 const sheet=byId('sheet');
 function updateSheet(){const inputs=[...sheet.elements];const valid=inputs.every(i=>i.value!==''&&i.validity.valid);const [resale,repairs,costs,profit]=inputs.map(i=>i.valueAsNumber);const bid=resale-repairs-costs-profit;byId('ceiling').textContent=!valid?'Enter all four amounts to calculate a bid ceiling.':bid<0?'Your costs and target profit exceed estimated proceeds by '+money(-bid)+'.':'Estimated bid ceiling · '+money(bid)}
-function openDetail(r){active=r;byId('title').textContent=r.street;byId('info').innerHTML=`<p>${r.city}, TX ${r.zip} · Single-family residence<br>3 bedrooms · 2 bathrooms · Built ${r.year}</p><p>Third-party sale date <b>${saleDate(r)}</b><br>Opening bid <b>Unconfirmed</b><br>2026 DCAD certified market value <b>${money(r.value)}</b></p><div class="sources"><a href="${r.source}">Third-party sale listing</a><a href="${r.notice||'https://dallas.tx.publicsearch.us/'}">${r.notice?'Filed notice':'Search county filings'}</a><a href="https://www.dallascad.org/AcctDetailRes.aspx?ID=${r.id}">DCAD parcel</a><a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(r.street+', '+r.city+' TX '+r.zip)}">Map</a></div>`;for(const i of sheet.elements)i.value=worksheets[r.id]?.[i.name]??'';updateSheet();byId('detail').showModal()}
+function openDetail(r){active=r;byId('title').textContent=r.street;byId('info').innerHTML=`<p>${r.city}, TX ${r.zip} · Single-family residence<br>${[r.beds&&plural(r.beds,'bedroom'),r.baths&&plural(r.baths,'bathroom'),'Built '+r.year].filter(Boolean).join(' · ')}</p><p>Third-party sale date <b>${saleDate(r)}</b><br>Opening bid <b>Unconfirmed</b><br>2026 DCAD certified market value <b>${money(r.value)}</b></p><div class="sources"><a href="${r.source}">Third-party sale listing</a><a href="${r.notice||'https://dallas.tx.publicsearch.us/'}">${r.notice?'Filed notice':'Search county filings'}</a><a href="https://www.dallascad.org/AcctDetailRes.aspx?ID=${r.id}">DCAD parcel</a><a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(r.street+', '+r.city+' TX '+r.zip)}">Map</a></div>`;for(const i of sheet.elements)i.value=worksheets[r.id]?.[i.name]??'';updateSheet();byId('detail').showModal()}
 sheet.oninput=()=>{worksheets[active.id]=Object.fromEntries(new FormData(sheet));persist('estimates',worksheets);updateSheet()};sheet.onsubmit=e=>e.preventDefault();byId('close').onclick=()=>byId('detail').close();render();
 // Draw a conceptual residential site plan in the masthead.
 const canvas=document.querySelector('canvas'),ctx=canvas.getContext('2d');

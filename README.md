@@ -43,12 +43,11 @@ open index.html
 
 ## Updating the data
 
-- **Add a lead:** append an object to `rows` with the DCAD account `id`, `street`, `city`, `zip`, `value`, `area`, `year`, `source` and `sale` (YYYY-MM-DD). Add `notice` once the county filing is found.
+- **Add a lead:** append an object to `rows` with the DCAD account `id`, `street`, `city`, `zip`, `value`, `area`, `year`, `source` and `sale` (YYYY-MM-DD). Add `beds` and `baths` when known (the detail view leaves them out if missing), and `notice` once the county filing is found.
 - **Add county packets:** append `{ file, updated, month }` entries to `archive`. File names must match the county's PDF names exactly.
 
 ## Possible next steps
 
 - Confirm each lead's sale date against a county filing and show verified vs. unverified on the card
 - Add current-month packets alongside the archive
-- Pull bedrooms and bathrooms per property instead of a fixed value in the detail view
 - Map view of leads by city
