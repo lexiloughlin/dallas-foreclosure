@@ -1,505 +1,231 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#183e33"><title>Parcel Desk · Dallas County auction finder</title>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#183e33">
+<meta name="description" content="Dallas County foreclosure auction leads for property investors: screen deals, run flip and rental numbers, and learn how the first-Tuesday sale works.">
+<title>Parcel Desk · Dallas County foreclosure deals for investors</title>
 <style>
-*{box-sizing:border-box}body{margin:0;background:#f8f7f1;color:#1d302a;font:16px/1.55 "DM Sans",Arial,sans-serif}a{color:#205746;text-underline-offset:3px}button,input,select{font:inherit}button,select{cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #ba7927;outline-offset:3px}header,main,footer{max-width:1232px;margin:auto;padding:0 4vw}header{height:80px;display:flex;align-items:center;justify-content:space-between}.brand{font:bold 27px Georgia;color:inherit;text-decoration:none;letter-spacing:-1px}.mark{display:inline-grid;place-items:center;background:#214e3c;color:#f8dfa2;border-radius:7px;width:38px;height:38px;margin-right:8px;font:26px Georgia}nav{display:flex;gap:22px;align-items:center}nav a{font-size:14px;font-weight:600;text-decoration:none}.hero{background:#173d32;color:#fff9e8;position:relative;overflow:hidden;border-radius:16px;padding:44px 5%;isolation:isolate}.hero canvas{position:absolute;inset:0 0 0 auto;width:46%;height:100%;z-index:-1}.tag{font:600 .78rem/1.4 ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;color:#c9d5a3}.hero h1{font:normal clamp(3rem,6vw,5.1rem)/.99 Georgia,serif;letter-spacing:-.055em;margin:18px 0}.hero h1 em{color:#e9ce88;font-weight:normal}.hero p{color:#e0e8da;max-width:460px;margin:20px 0 0}.board{padding:32px 0}.head,.controls,.rowtop,.bottom,.facts,footer{display:flex;align-items:center;justify-content:space-between;gap:16px}h2,h3{font-family:Georgia,serif;font-weight:normal;letter-spacing:-.035em}h2{font-size:34px;margin:0}h3{font-size:28px;margin:10px 0 1px}.muted,small{color:#55675d}.controls{justify-content:flex-start;margin:16px 0;flex-wrap:wrap}.search,select{border:1px solid #c6cec1;background:#fffefa;border-radius:8px;padding:10px 14px;color:#213f32}.search{flex:1;min-width:175px}.pills{display:flex;border:1px solid #c6cec1;border-radius:8px;overflow:hidden}.pills button{border:0;border-radius:0}.pills [aria-pressed=true],.primary{color:white;background:#234b3c}button{background:#fffefa;color:#204637;border:1px solid #bdc9bc;border-radius:7px;padding:9px 14px;font-weight:600}.flat{background:transparent}.cards{display:grid;grid-template-columns:1fr 1fr;gap:18px}article,.panel{background:#fffefa;border:1px solid #cbd2c7;border-radius:12px;padding:24px}.label{color:#3c6751;background:#e9f0e3;border-radius:4px;padding:3px 8px;font-size:13px;font-weight:bold}.save{font-size:14px;padding:5px 10px}.facts{margin:20px 0;padding:14px 0;border-block:1px solid #dce1d7;justify-content:space-between}.facts b{display:block}.facts small{font-size:13px}.bottom{font-size:14px}.bottom button{font-size:14px}.meta{font:13px/1.5 ui-monospace,monospace;color:#53685a}.panel{margin-bottom:24px}.sources{display:flex;gap:20px;flex-wrap:wrap}.sources a,dialog a{font-weight:600}.resources p{margin-top:4px}footer{border-top:1px solid #cad1c4;padding-block:20px;color:#53685a;font-size:14px}dialog{width:min(610px,94vw);max-height:90vh;overflow:auto;border:1px solid #acbcae;border-radius:14px;padding:24px;background:#fffdf6;color:inherit}dialog::backdrop{background:#102d23a6}dialog h2{font-size:30px}dialog h3{font-size:23px}dialog form{display:grid;grid-template-columns:1fr 1fr;gap:12px}dialog label{display:grid;font-size:14px;font-weight:600}dialog input{width:100%;padding:8px;border:1px solid #bdc9bc;border-radius:5px;background:#fff}output{display:block;color:#194d39;background:#e9f0e3;padding:12px;margin-top:14px;font-weight:700}.empty{grid-column:1/-1;text-align:center;padding:30px}.empty p{margin:0}.snapshot{font-size:14px}.sr{position:absolute;width:1px;height:1px;clip-path:inset(50%);overflow:hidden}@media(max-width:750px){.hero canvas{opacity:.25;width:65%}.cards{grid-template-columns:1fr}header{height:65px}.hero{padding:30px 6%}.head{align-items:flex-start;flex-direction:column;gap:0}nav{gap:12px}.brand{font-size:23px}.mark{width:30px;height:30px}.hero p{max-width:85%}.controls .search{flex-basis:100%}.bottom{flex-wrap:wrap}article{padding:18px}}@media(max-width:400px){nav a:first-child{display:none}.facts{gap:7px}.hero p{max-width:100%}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#f8f7f1;color:#1d302a;font:16px/1.55 "DM Sans",Arial,sans-serif}
+a{color:#205746;text-underline-offset:3px}
+button,input,select{font:inherit}button,select{cursor:pointer}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid #ba7927;outline-offset:3px}
+header,main,footer{max-width:1232px;margin:auto;padding:0 4vw}
+header{height:80px;display:flex;align-items:center;justify-content:space-between}
+.brand{font:bold 27px Georgia;color:inherit;text-decoration:none;letter-spacing:-1px}
+.mark{display:inline-grid;place-items:center;background:#214e3c;color:#f8dfa2;border-radius:7px;width:38px;height:38px;margin-right:8px;font:26px Georgia}
+nav{display:flex;gap:22px;align-items:center}nav a{font-size:14px;font-weight:600;text-decoration:none}
+.hero{background:#173d32;color:#fff9e8;position:relative;overflow:hidden;border-radius:16px;padding:44px 5%;isolation:isolate}
+.hero canvas{position:absolute;inset:0 0 0 auto;width:46%;height:100%;z-index:-1}
+.tag{font:600 .78rem/1.4 ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;color:#c9d5a3}
+.hero h1{font:normal clamp(2.6rem,5.4vw,4.6rem)/1 Georgia,serif;letter-spacing:-.05em;margin:18px 0}
+.hero h1 em{color:#e9ce88;font-weight:normal}
+.hero p{color:#e0e8da;max-width:480px;margin:20px 0 0}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.cta a{display:inline-block;padding:11px 18px;border-radius:8px;font-weight:700;font-size:15px;text-decoration:none;background:#e9ce88;color:#173d32}
+.cta a+a{background:transparent;color:#fff9e8;border:1px solid #7d9a8a}
+.strip{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
+.strip div{background:#fffefa;border:1px solid #cbd2c7;border-left:5px solid #ba7927;border-radius:10px;padding:14px 18px}
+.strip small{display:block;font:600 12px/1.4 ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:#55675d}
+.strip b{display:block;font:normal 22px/1.25 Georgia,serif;letter-spacing:-.02em;margin:3px 0}
+.strip span{font-size:14px;color:#55675d}
+.board{padding:36px 0 8px}
+.head,.controls,.rowtop,.bottom,.facts,footer{display:flex;align-items:center;justify-content:space-between;gap:16px}
+h2,h3{font-family:Georgia,serif;font-weight:normal;letter-spacing:-.035em}
+h2{font-size:34px;margin:0}h3{font-size:28px;margin:10px 0 1px}
+.lede{max-width:720px;margin:8px 0 0}
+.muted,small{color:#55675d}
+.controls{justify-content:flex-start;margin:16px 0;flex-wrap:wrap}
+.search,select{border:1px solid #c6cec1;background:#fffefa;border-radius:8px;padding:10px 14px;color:#213f32}
+.search{flex:1;min-width:175px}
+.pills{display:flex;border:1px solid #c6cec1;border-radius:8px;overflow:hidden}
+.pills button{border:0;border-radius:0}
+.pills [aria-pressed=true],.pills [aria-selected=true],.primary{color:white;background:#234b3c}
+button{background:#fffefa;color:#204637;border:1px solid #bdc9bc;border-radius:7px;padding:9px 14px;font-weight:600}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+article,.panel{background:#fffefa;border:1px solid #cbd2c7;border-radius:12px;padding:24px}
+.label{color:#3c6751;background:#e9f0e3;border-radius:4px;padding:3px 8px;font-size:13px;font-weight:bold}
+.save{font-size:14px;padding:5px 10px}
+.facts{margin:20px 0 16px;padding:14px 0;border-block:1px solid #dce1d7}
+.facts b{display:block}.facts small{font-size:13px}
+.screen{margin:0 0 18px}
+.screen .row{display:flex;justify-content:space-between;gap:10px;font-size:14px}
+.screen .row b{font-size:16px}
+.track{height:12px;border-radius:6px;background:#e4e8dd;overflow:hidden;margin:7px 0 5px;display:flex}
+.track i{display:block;height:100%}
+.screen small{font-size:13px}
+.bottom{font-size:14px}.bottom button{font-size:14px}
+.meta{font:13px/1.5 ui-monospace,monospace;color:#53685a}
+.panel{margin-bottom:24px}
+.sources{display:flex;gap:20px;flex-wrap:wrap}.sources a,dialog a{font-weight:600}
+.resources p{margin-top:4px}
+/* guide */
+.steps{list-style:none;padding:0;margin:26px 0 0;display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:s}
+.steps li{counter-increment:s;position:relative;padding-top:54px}
+.steps li::before{content:counter(s);position:absolute;top:0;left:0;width:40px;height:40px;border-radius:50%;background:#234b3c;color:#f8dfa2;display:grid;place-items:center;font:20px Georgia;z-index:1}
+.steps li::after{content:"";position:absolute;top:19px;left:40px;right:-18px;border-top:2px dashed #b9c5b4}
+.steps li:last-child::after{display:none}
+.steps b{display:block;font:normal 21px/1.2 Georgia,serif;letter-spacing:-.02em;margin-bottom:5px}
+.steps span{font-size:15px;color:#3f5248}
+.risks{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px}
+.risk{background:#fffefa;border:1px solid #cbd2c7;border-top:5px solid #ba7927;border-radius:10px;padding:18px}
+.risk.ok{border-top-color:#3c7a5c}
+.risk b{display:block;font:normal 20px/1.2 Georgia,serif;margin-bottom:6px}
+.risk p{margin:0;font-size:15px;color:#3f5248}
+.chip{display:inline-block;font:700 11px/1 ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;padding:4px 7px;border-radius:4px;background:#f6e6c8;color:#7a4c10;margin-bottom:9px}
+.risk.ok .chip{background:#e0eee3;color:#235a40}
+.fine{font-size:14px;margin-top:18px}
+footer{border-top:1px solid #cad1c4;padding-block:20px;color:#53685a;font-size:14px;margin-top:24px;flex-wrap:wrap}
+/* dialog */
+dialog{width:min(660px,94vw);max-height:92vh;overflow:auto;border:1px solid #acbcae;border-radius:14px;padding:24px;background:#fffdf6;color:inherit}
+dialog::backdrop{background:#102d23a6}
+dialog h2{font-size:30px}dialog h3{font-size:23px;margin-top:18px}
+dialog form{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+dialog form[hidden]{display:none}
+dialog label{display:grid;font-size:14px;font-weight:600;align-content:start}
+dialog input{width:100%;padding:8px;border:1px solid #bdc9bc;border-radius:5px;background:#fff}
+.tabs{margin-top:10px;width:max-content;max-width:100%}
+.result{background:#e9f0e3;border-radius:10px;padding:16px;margin-top:14px}
+.result .big{font:normal 28px/1.15 Georgia,serif;letter-spacing:-.03em;color:#173d32}
+.result .sub{font-size:14px;color:#3f5248;margin-top:2px}
+.result .track{height:22px;border-radius:5px;background:#fff;margin:12px 0 8px}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:13px;list-style:none;padding:0;margin:0}
+.legend i{display:inline-block;width:11px;height:11px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
+.kpis div{background:#fffefa;border-radius:7px;padding:9px 11px}
+.kpis small{display:block;font-size:12px}.kpis b{font-size:18px}
+.good{color:#1d6b46}.bad{color:#a2401c}
+.empty{grid-column:1/-1;text-align:center;padding:30px}.empty p{margin:0}
+.snapshot{font-size:14px}
+@media(max-width:900px){.steps{grid-template-columns:1fr 1fr}.steps li:nth-child(2)::after{display:none}.risks{grid-template-columns:1fr 1fr}}
+@media(max-width:750px){.hero canvas{opacity:.25;width:65%}.cards,.strip,.risks{grid-template-columns:1fr}header{height:65px}.hero{padding:30px 6%}.head{align-items:flex-start;flex-direction:column;gap:0}nav{gap:12px}nav a{font-size:13px}.brand{font-size:23px}.mark{width:30px;height:30px}.hero p{max-width:90%}.controls .search{flex-basis:100%}.bottom{flex-wrap:wrap}article{padding:18px}h2{font-size:28px}}
+@media(max-width:520px){nav a:nth-child(n+3){display:none}.steps{grid-template-columns:1fr}.steps li::after{display:none}.facts{gap:7px}.hero p{max-width:100%}dialog form,.kpis{grid-template-columns:1fr}dialog{padding:18px}}
 </style></head><body>
-<header><a class="brand" href="#top"><span class="mark" aria-hidden="true">⌂</span>Parcel Desk</a><nav><a href="#listings">Research leads</a><a href="#county">County notices</a></nav></header>
-<main id="top"><section class="hero"><canvas aria-hidden="true"></canvas><div class="tag">Dallas County · Texas</div><h1>Foreclosure<br><em>auction finder.</em></h1><p>Explore residential auction leads, check the county records, and work out what you can afford to bid.</p></section>
-<section class="board" id="county"><div class="head"><h2>County foreclosure notices</h2><span class="meta">Dallas County Clerk · Nov 19, 2026 snapshot</span></div><p>For upcoming auctions, open the county search, choose <b>Foreclosures</b>, and filter by sale date or city. <a href="https://dallas.tx.publicsearch.us/">Search current filings</a></p><details class="panel" open><summary><b>County PDF archive · March–May 2026</b></summary><p class="muted">Each packet can contain several notices. These sale dates have passed. The filings do not establish whether a property sold. <a href="https://www.dallascounty.org/government/county-clerk/recording/foreclosures.php">View county index</a></p><div class="controls"><select id="archiveCity" aria-label="Archive city"><option value="">All cities</option></select><select id="archiveMonth" aria-label="Archive month"><option value="">All months</option></select></div><p id="archiveCount" aria-live="polite"></p><div id="archivePackets" style="max-height:285px;overflow:auto" tabindex="0" aria-label="County PDF packets"></div></details></section><section class="board" id="listings"><div class="head"><h2>Property research watchlist</h2><span class="meta">Snapshot · Nov 19, 2026</span></div><div class="controls"><input class="search" id="query" aria-label="Search address, city or ZIP" type="search" placeholder="Search address, city or ZIP"><select aria-label="Sort properties" id="sort"><option value="city">Sort by city</option><option value="low">Lowest county value</option><option value="high">Highest county value</option></select><div class="pills"><button id="all" aria-pressed="true">All</button><button id="watch" aria-pressed="false">Watchlist</button></div></div><p class="snapshot muted" id="count" aria-live="polite"></p><div class="cards" id="cards"></div></section>
-<section id="sources" class="panel resources"><h2>Public records</h2><p class="muted">Check the latest filing and sale terms before bidding. Tax sales use a separate auction platform.</p><div class="sources"><a href="https://dallascounty.org/government/county-clerk/recording/foreclosures.php">County foreclosure notices</a><a href="https://www.dallascad.org/">Appraisal district</a><a href="https://dallas.texas.sheriffsaleauctions.com/">Sheriff’s tax auctions</a></div></section></main><footer><span>Parcel Desk</span><span>Dallas County, TX</span></footer>
-<dialog id="detail" aria-labelledby="title"><div class="rowtop"><span class="label">Property research</span><button id="close">Close</button></div><h2 id="title"></h2><div id="info"></div><h3>Your bid worksheet</h3><p class="snapshot">Enter your estimates in dollars. The ceiling subtracts repairs, other costs, and target profit from resale proceeds.</p><form id="sheet"><label>Expected resale price<input name="resale" type="number" min="0" step="any"></label><label>Repairs<input name="repairs" type="number" min="0" step="any"></label><label>Closing, holding &amp; selling costs<input name="costs" type="number" min="0" step="any"></label><label>Target profit<input name="profit" type="number" min="0" step="any"></label></form><output id="ceiling" aria-live="polite"></output></dialog>
+<header><a class="brand" href="#top"><span class="mark" aria-hidden="true">⌂</span>Parcel Desk</a><nav><a href="#listings">Deals</a><a href="#guide">Auction guide</a><a href="#county">County notices</a><a href="#sources">Records</a></nav></header>
+<main id="top">
+<section class="hero"><canvas aria-hidden="true"></canvas><div class="tag">Dallas County, Texas · For property investors</div><h1>Foreclosure deals,<br><em>sized up before you bid.</em></h1><p>Screen auction leads against county values, run the flip or rental numbers, and know your walk-away price before the first Tuesday sale.</p><div class="cta"><a href="#listings">See the deals</a><a href="#guide">How the auction works</a></div></section>
+<div class="strip"><div><small>Next sale day</small><b id="nextSale"></b><span>Sales run between 10 a.m. and 4 p.m.</span></div><div><small>Where</small><b>George Allen Courts Building</b><span>600 Commerce St, north side, under the overhang</span></div><div><small>How you pay</small><b>Cash or cashier's check</b><span>Terms are set by each trustee, usually in full the same day</span></div></div>
+
+<section class="board" id="listings"><div class="head"><h2>Deals to size up</h2><span class="meta">Snapshot · Nov 19, 2026</span></div><p class="lede muted">Each lead shows the county's value and a quick screening price. Open one to run your own flip or rental numbers. Your numbers save in this browser.</p><div class="controls"><input class="search" id="query" aria-label="Search address, city or ZIP" type="search" placeholder="Search address, city or ZIP"><select aria-label="Sort properties" id="sort"><option value="city">Sort by city</option><option value="low">Lowest county value</option><option value="high">Highest county value</option><option value="ppsf">Lowest price per ft²</option></select><div class="pills"><button id="all" aria-pressed="true">All</button><button id="watch" aria-pressed="false">Watchlist</button></div></div><p class="snapshot muted" id="count" aria-live="polite"></p><div class="cards" id="cards"></div></section>
+
+<section class="board" id="guide"><div class="head"><h2>How a Texas foreclosure auction works</h2><span class="meta">Four steps</span></div><p class="lede muted">Texas mortgage foreclosures happen outside of court, at a live public auction run by a trustee. Here is the path from notice to keys.</p>
+<ol class="steps"><li><b>Notice is filed</b><span>A notice of sale is posted with the County Clerk at least 21 days before the auction. It names the property, the sale date and the earliest start time.</span></li><li><b>Do your homework</b><span>Pull the notice, order a title search, drive by the house, and set your bid ceiling. You cannot go inside or get an inspection.</span></li><li><b>Sale day</b><span>First Tuesday of the month, between 10 a.m. and 4 p.m. If that Tuesday is Jan 1 or July 4, the sale moves to Wednesday. Highest bidder wins.</span></li><li><b>After you win</b><span>You pay the trustee and receive a trustee's deed. If the home is occupied, getting possession can mean an eviction case. Insure it right away.</span></li></ol>
+<div class="risks"><div class="risk"><span class="chip">Risk</span><b>Sold as-is, sight unseen</b><p>No interior access, no inspection, no seller disclosures. Budget repairs as if you will find surprises.</p></div><div class="risk"><span class="chip">Risk</span><b>Some liens stay with the house</b><p>The sale wipes out liens junior to the one being foreclosed. Senior liens and unpaid property taxes survive and become yours. A title search before bidding is the only way to know.</p></div><div class="risk"><span class="chip">Risk</span><b>Sales get pulled</b><p>A payoff, a loan workout or a bankruptcy filing can cancel a sale right up to auction day. Re-check the filing the morning of the sale.</p></div><div class="risk ok"><span class="chip">Good to know</span><b>Mortgage sales are final</b><p>Texas gives the former owner no general right to buy the home back after a mortgage foreclosure sale.</p></div><div class="risk"><span class="chip">Risk</span><b>Tax and HOA sales are different</b><p>After a tax sale the former owner can redeem for 2 years (homestead or farm land) or 180 days (other property). HOA foreclosures carry a 180-day redemption right.</p></div><div class="risk"><span class="chip">Risk</span><b>Cash, fast</b><p>You generally cannot use a regular mortgage at the courthouse. Have funds ready and confirm the trustee's payment terms before sale day.</p></div></div>
+<p class="fine muted">Rules come from <a href="https://statutes.capitol.texas.gov/Docs/PR/pdf/PR.51.pdf">Texas Property Code ch. 51</a> and the <a href="https://www.dallascounty.org/government/county-clerk/recording/foreclosures.php">Dallas County Clerk</a>. Redemption periods are summarized from <a href="https://lonestarlandlaw.com/redemption-issues-for-investors/">this Texas attorney's overview</a>. This is general information, so talk to a real estate attorney before you bid.</p></section>
+
+<section class="board" id="county"><div class="head"><h2>County foreclosure notices</h2><span class="meta">Dallas County Clerk · Nov 19, 2026 snapshot</span></div><p>For upcoming auctions, open the county search, choose <b>Foreclosures</b>, and filter by sale date or city. <a href="https://dallas.tx.publicsearch.us/">Search current filings</a></p><details class="panel"><summary><b>County PDF archive · March–May 2026</b> <span class="muted">(past sales, useful for seeing what a notice looks like)</span></summary><p class="muted">Each packet can contain several notices. These sale dates have passed. The filings do not establish whether a property sold. <a href="https://www.dallascounty.org/government/county-clerk/recording/foreclosures.php">View county index</a></p><div class="controls"><select id="archiveCity" aria-label="Archive city"><option value="">All cities</option></select><select id="archiveMonth" aria-label="Archive month"><option value="">All months</option></select></div><p id="archiveCount" aria-live="polite"></p><div id="archivePackets" style="max-height:285px;overflow:auto" tabindex="0" aria-label="County PDF packets"></div></details></section>
+
+<section id="sources" class="panel resources"><h2>Public records</h2><p class="muted">Check the latest filing and sale terms before bidding. Tax sales use a separate auction platform.</p><div class="sources"><a href="https://dallascounty.org/government/county-clerk/recording/foreclosures.php">County foreclosure notices</a><a href="https://dallas.tx.publicsearch.us/">County filing search</a><a href="https://www.dallascad.org/">Appraisal district</a><a href="https://dallas.texas.sheriffsaleauctions.com/">Sheriff’s tax auctions</a></div></section>
+</main>
+<footer><span>Parcel Desk · Dallas County, TX</span><span>A research aid, not legal or investment advice. Verify every sale against the county filing.</span></footer>
+
+<dialog id="detail" aria-labelledby="title"><div class="rowtop"><span class="label">Deal analysis</span><button id="close">Close</button></div><h2 id="title"></h2><div id="info"></div>
+<h3>Run the numbers</h3>
+<div class="pills tabs" role="tablist" aria-label="Strategy"><button role="tab" id="tabFlip" aria-selected="true" aria-controls="sheet">Fix &amp; flip</button><button role="tab" id="tabRent" aria-selected="false" aria-controls="rentSheet">Buy &amp; rent</button></div>
+<form id="sheet" role="tabpanel" aria-labelledby="tabFlip"><label>Expected resale price<input name="resale" type="number" min="0" step="any" inputmode="decimal"></label><label>Repairs<input name="repairs" type="number" min="0" step="any" inputmode="decimal"></label><label>Closing, holding &amp; selling costs<input name="costs" type="number" min="0" step="any" inputmode="decimal"></label><label>Target profit<input name="profit" type="number" min="0" step="any" inputmode="decimal"></label></form>
+<form id="rentSheet" role="tabpanel" aria-labelledby="tabRent" hidden><label>Your bid<input name="price" type="number" min="0" step="any" inputmode="decimal"></label><label>Repairs<input name="rehab" type="number" min="0" step="any" inputmode="decimal"></label><label>Monthly rent<input name="rent" type="number" min="0" step="any" inputmode="decimal"></label><label>Property tax per year<input name="tax" type="number" min="0" step="any" inputmode="decimal"></label><label>Insurance per year<input name="insurance" type="number" min="0" step="any" inputmode="decimal"></label><label>Vacancy &amp; upkeep, % of rent<input name="reserve" type="number" min="0" max="100" step="any" inputmode="decimal" placeholder="e.g. 15"></label></form>
+<div class="result" id="result" aria-live="polite"></div>
+<p class="snapshot muted" id="formula"></p></dialog>
+
 <script>
 const archive = [
- {
-  "file": "Addison_4.pdf",
-  "updated": "2026-02-11",
-  "month": "March"
- },
- {
-  "file": "Balch-Springs_1.pdf",
-  "updated": "2026-02-03",
-  "month": "March"
- },
- {
-  "file": "Balch-Springs_4.pdf",
-  "updated": "2026-02-11",
-  "month": "March"
- },
- {
-  "file": "Carrollton_2.pdf",
-  "updated": "2026-02-04",
-  "month": "March"
- },
- {
-  "file": "Carrollton_3.pdf",
-  "updated": "2026-02-06",
-  "month": "March"
- },
- {
-  "file": "Carrollton_4.pdf",
-  "updated": "2026-02-11",
-  "month": "March"
- },
- {
-  "file": "Cedar-Hill_1.pdf",
-  "updated": "2026-02-03",
-  "month": "March"
- },
- {
-  "file": "Cedar-Hill_2.pdf",
-  "updated": "2026-02-04",
-  "month": "March"
- },
- {
-  "file": "Cedar-Hill_3.pdf",
-  "updated": "2026-02-06",
-  "month": "March"
- },
- {
-  "file": "Cedar-Hill_4.pdf",
-  "updated": "2026-02-11",
-  "month": "March"
- },
- {
-  "file": "Coppell_2.pdf",
-  "updated": "2026-02-04",
-  "month": "March"
- },
- {
-  "file": "Coppell_4.pdf",
-  "updated": "2026-02-11",
-  "month": "March"
- },
- {
-  "file": "Dallas_1.pdf",
-  "updated": "2026-02-03",
-  "month": "March"
- },
- {
-  "file": "Dallas_2.pdf",
-  "updated": "2026-02-04",
-  "month": "March"
- },
- {
-  "file": "Dallas_3.pdf",
-  "updated": "2026-02-06",
-  "month": "March"
- },
- {
-  "file": "Dallas_4 (1).pdf",
-  "updated": "2026-02-11",
-  "month": "March"
- },
- {
-  "file": "Dallas_4 (2).pdf",
-  "updated": "2026-02-11",
-  "month": "March"
- },
- {
-  "file": "Dallas_4 (3).pdf",
-  "updated": "2026-02-11",
-  "month": "March"
- },
- {
-  "file": "DeSoto_1.pdf",
-  "updated": "2026-02-03",
-  "month": "March"
- },
- {
-  "file": "DeSoto_2.pdf",
-  "updated": "2026-02-04",
-  "month": "March"
- },
- {
-  "file": "DeSoto_3.pdf",
-  "updated": "2026-02-06",
-  "month": "March"
- },
- {
-  "file": "DeSoto_4.pdf",
-  "updated": "2026-02-11",
-  "month": "March"
- },
- {
-  "file": "Duncanville_1.pdf",
-  "updated": "2026-02-03",
-  "month": "March"
- },
- {
-  "file": "Duncanville_2.pdf",
-  "updated": "2026-02-04",
-  "month": "March"
- },
- {
-  "file": "Duncanville_4.pdf",
-  "updated": "2026-02-11",
-  "month": "March"
- },
- {
-  "file": "Farmers-Branch_1.pdf",
-  "updated": "2026-02-03",
-  "month": "March"
- },
- {
-  "file": "Farmers-Branch_4.pdf",
-  "updated": "2026-02-11",
-  "month": "March"
- },
- {
-  "file": "Garland_1.pdf",
-  "updated": "2026-02-03",
-  "month": "March"
- },
- {
-  "file": "Garland_2.pdf",
-  "updated": "2026-02-04",
-  "month": "March"
- },
- {
-  "file": "Garland_3.pdf",
-  "updated": "2026-02-06",
-  "month": "March"
- },
- {
-  "file": "Garland_4.pdf",
-  "updated": "2026-02-11",
-  "month": "March"
- },
- {
-  "file": "Glenn Heights_1.pdf",
-  "updated": "2026-02-03",
-  "month": "March"
- },
- {
-  "file": "Glenn-Heights_3.pdf",
-  "updated": "2026-02-06",
-  "month": "March"
- },
- {
-  "file": "Grand-Prairie_1.pdf",
-  "updated": "2026-02-03",
-  "month": "March"
- },
- {
-  "file": "Grand-Prairie_2.pdf",
-  "updated": "2026-02-04",
-  "month": "March"
- },
- {
-  "file": "Grand-Prairie_3.pdf",
-  "updated": "2026-02-06",
-  "month": "March"
- },
- {
-  "file": "Grand-Prairie_4.pdf",
-  "updated": "2026-02-11",
-  "month": "March"
- },
- {
-  "file": "Hutchins_1.pdf",
-  "updated": "2026-02-03",
-  "month": "March"
- },
- {
-  "file": "Irving_1.pdf",
-  "updated": "2026-02-03",
-  "month": "March"
- },
- {
-  "file": "Irving_2.pdf",
-  "updated": "2026-02-04",
-  "month": "March"
- },
- {
-  "file": "Irving_3.pdf",
-  "updated": "2026-02-06",
-  "month": "March"
- },
- {
-  "file": "Irving_4.pdf",
-  "updated": "2026-02-11",
-  "month": "March"
- },
- {
-  "file": "Lancaster_1.pdf",
-  "updated": "2026-02-03",
-  "month": "March"
- },
- {
-  "file": "Lancaster_2.pdf",
-  "updated": "2026-02-04",
-  "month": "March"
- },
- {
-  "file": "Lancaster_4.pdf",
-  "updated": "2026-02-11",
-  "month": "March"
- },
- {
-  "file": "Mesquite_1.pdf",
-  "updated": "2026-02-03",
-  "month": "March"
- },
- {
-  "file": "Mesquite_2.pdf",
-  "updated": "2026-02-04",
-  "month": "March"
- },
- {
-  "file": "Mesquite_3.pdf",
-  "updated": "2026-02-06",
-  "month": "March"
- },
- {
-  "file": "Mesquite_4.pdf",
-  "updated": "2026-02-11",
-  "month": "March"
- },
- {
-  "file": "Other_1.pdf",
-  "updated": "2026-02-03",
-  "month": "March"
- },
- {
-  "file": "Other_2.pdf",
-  "updated": "2026-02-04",
-  "month": "March"
- },
- {
-  "file": "Other_3.pdf",
-  "updated": "2026-02-06",
-  "month": "March"
- },
- {
-  "file": "Other_4.pdf",
-  "updated": "2026-02-11",
-  "month": "March"
- },
- {
-  "file": "Richardson_3.pdf",
-  "updated": "2026-02-06",
-  "month": "March"
- },
- {
-  "file": "Richardson_4.pdf",
-  "updated": "2026-02-11",
-  "month": "March"
- },
- {
-  "file": "Rowlett_1.pdf",
-  "updated": "2026-02-03",
-  "month": "March"
- },
- {
-  "file": "Rowlett_2.pdf",
-  "updated": "2026-02-04",
-  "month": "March"
- },
- {
-  "file": "Sachse_3.pdf",
-  "updated": "2026-02-06",
-  "month": "March"
- },
- {
-  "file": "Sachse_4.pdf",
-  "updated": "2026-02-11",
-  "month": "March"
- },
- {
-  "file": "Seagoville_4.pdf",
-  "updated": "2026-02-11",
-  "month": "March"
- },
- {
-  "file": "Wilmer_2.pdf",
-  "updated": "2026-02-04",
-  "month": "March"
- },
- {
-  "file": "Wylie_2.pdf",
-  "updated": "2026-02-04",
-  "month": "March"
- },
- {
-  "file": "Addison_1.pdf",
-  "updated": "2026-02-17",
-  "month": "April"
- },
- {
-  "file": "Balch-Springs_1.pdf",
-  "updated": "2026-02-17",
-  "month": "April"
- },
- {
-  "file": "Balch-Springs_2.pdf",
-  "updated": "2026-03-02",
-  "month": "April"
- },
- {
-  "file": "Cedar-Hill_1.pdf",
-  "updated": "2026-02-17",
-  "month": "April"
- },
- {
-  "file": "Cedar-Hill_2.pdf",
-  "updated": "2026-03-02",
-  "month": "April"
- },
- {
-  "file": "Dallas_1 (1).pdf",
-  "updated": "2026-02-17",
-  "month": "April"
- },
- {
-  "file": "Dallas_1 (2).pdf",
-  "updated": "2026-02-17",
-  "month": "April"
- },
- {
-  "file": "Dallas_2.pdf",
-  "updated": "2026-03-02",
-  "month": "April"
- },
- {
-  "file": "DeSoto_1.pdf",
-  "updated": "2026-02-17",
-  "month": "April"
- },
- {
-  "file": "DeSoto_2.pdf",
-  "updated": "2026-03-02",
-  "month": "April"
- },
- {
-  "file": "Duncanville_1.pdf",
-  "updated": "2026-02-17",
-  "month": "April"
- },
- {
-  "file": "Duncanville_2.pdf",
-  "updated": "2026-03-02",
-  "month": "April"
- },
- {
-  "file": "Garland_1.pdf",
-  "updated": "2026-02-17",
-  "month": "April"
- },
- {
-  "file": "Garland_2.pdf",
-  "updated": "2026-03-02",
-  "month": "April"
- },
- {
-  "file": "Glenn-Heights_1.pdf",
-  "updated": "2026-02-17",
-  "month": "April"
- },
- {
-  "file": "Glenn-Heights_2.pdf",
-  "updated": "2026-03-02",
-  "month": "April"
- },
- {
-  "file": "Grand-Prairie_1.pdf",
-  "updated": "2026-02-17",
-  "month": "April"
- },
- {
-  "file": "Grand-Prairie_2.pdf",
-  "updated": "2026-03-02",
-  "month": "April"
- },
- {
-  "file": "Irving_1.pdf",
-  "updated": "2026-02-17",
-  "month": "April"
- },
- {
-  "file": "Irving_2.pdf",
-  "updated": "2026-03-02",
-  "month": "April"
- },
- {
-  "file": "Lancaster_1.pdf",
-  "updated": "2026-02-17",
-  "month": "April"
- },
- {
-  "file": "Lancaster_2.pdf",
-  "updated": "2026-03-02",
-  "month": "April"
- },
- {
-  "file": "Mesquite_1.pdf",
-  "updated": "2026-02-17",
-  "month": "April"
- },
- {
-  "file": "Mesquite_2.pdf",
-  "updated": "2026-03-02",
-  "month": "April"
- },
- {
-  "file": "Other_1.pdf",
-  "updated": "2026-02-17",
-  "month": "April"
- },
- {
-  "file": "Other_2.pdf",
-  "updated": "2026-03-02",
-  "month": "April"
- },
- {
-  "file": "Rowlett_1.pdf",
-  "updated": "2026-02-17",
-  "month": "April"
- },
- {
-  "file": "Rowlett_2.pdf",
-  "updated": "2026-03-02",
-  "month": "April"
- },
- {
-  "file": "Sachse_1.pdf",
-  "updated": "2026-02-17",
-  "month": "April"
- },
- {
-  "file": "Sachse_2.pdf",
-  "updated": "2026-03-02",
-  "month": "April"
- },
- {
-  "file": "Seagoville_1.pdf",
-  "updated": "2026-02-17",
-  "month": "April"
- },
- {
-  "file": "Seagoville_2.pdf",
-  "updated": "2026-03-02",
-  "month": "April"
- },
- {
-  "file": "Dallas_1.pdf",
-  "updated": "2026-03-17",
-  "month": "May"
- },
- {
-  "file": "Glenn-Heights_1.pdf",
-  "updated": "2026-03-17",
-  "month": "May"
- },
- {
-  "file": "Mesquite_1.pdf",
-  "updated": "2026-03-17",
-  "month": "May"
- },
- {
-  "file": "Rowlett_1.pdf",
-  "updated": "2026-03-17",
-  "month": "May"
- }
+ {"file": "Addison_4.pdf", "updated": "2026-02-11", "month": "March"},
+ {"file": "Balch-Springs_1.pdf", "updated": "2026-02-03", "month": "March"},
+ {"file": "Balch-Springs_4.pdf", "updated": "2026-02-11", "month": "March"},
+ {"file": "Carrollton_2.pdf", "updated": "2026-02-04", "month": "March"},
+ {"file": "Carrollton_3.pdf", "updated": "2026-02-06", "month": "March"},
+ {"file": "Carrollton_4.pdf", "updated": "2026-02-11", "month": "March"},
+ {"file": "Cedar-Hill_1.pdf", "updated": "2026-02-03", "month": "March"},
+ {"file": "Cedar-Hill_2.pdf", "updated": "2026-02-04", "month": "March"},
+ {"file": "Cedar-Hill_3.pdf", "updated": "2026-02-06", "month": "March"},
+ {"file": "Cedar-Hill_4.pdf", "updated": "2026-02-11", "month": "March"},
+ {"file": "Coppell_2.pdf", "updated": "2026-02-04", "month": "March"},
+ {"file": "Coppell_4.pdf", "updated": "2026-02-11", "month": "March"},
+ {"file": "Dallas_1.pdf", "updated": "2026-02-03", "month": "March"},
+ {"file": "Dallas_2.pdf", "updated": "2026-02-04", "month": "March"},
+ {"file": "Dallas_3.pdf", "updated": "2026-02-06", "month": "March"},
+ {"file": "Dallas_4 (1).pdf", "updated": "2026-02-11", "month": "March"},
+ {"file": "Dallas_4 (2).pdf", "updated": "2026-02-11", "month": "March"},
+ {"file": "Dallas_4 (3).pdf", "updated": "2026-02-11", "month": "March"},
+ {"file": "DeSoto_1.pdf", "updated": "2026-02-03", "month": "March"},
+ {"file": "DeSoto_2.pdf", "updated": "2026-02-04", "month": "March"},
+ {"file": "DeSoto_3.pdf", "updated": "2026-02-06", "month": "March"},
+ {"file": "DeSoto_4.pdf", "updated": "2026-02-11", "month": "March"},
+ {"file": "Duncanville_1.pdf", "updated": "2026-02-03", "month": "March"},
+ {"file": "Duncanville_2.pdf", "updated": "2026-02-04", "month": "March"},
+ {"file": "Duncanville_4.pdf", "updated": "2026-02-11", "month": "March"},
+ {"file": "Farmers-Branch_1.pdf", "updated": "2026-02-03", "month": "March"},
+ {"file": "Farmers-Branch_4.pdf", "updated": "2026-02-11", "month": "March"},
+ {"file": "Garland_1.pdf", "updated": "2026-02-03", "month": "March"},
+ {"file": "Garland_2.pdf", "updated": "2026-02-04", "month": "March"},
+ {"file": "Garland_3.pdf", "updated": "2026-02-06", "month": "March"},
+ {"file": "Garland_4.pdf", "updated": "2026-02-11", "month": "March"},
+ {"file": "Glenn Heights_1.pdf", "updated": "2026-02-03", "month": "March"},
+ {"file": "Glenn-Heights_3.pdf", "updated": "2026-02-06", "month": "March"},
+ {"file": "Grand-Prairie_1.pdf", "updated": "2026-02-03", "month": "March"},
+ {"file": "Grand-Prairie_2.pdf", "updated": "2026-02-04", "month": "March"},
+ {"file": "Grand-Prairie_3.pdf", "updated": "2026-02-06", "month": "March"},
+ {"file": "Grand-Prairie_4.pdf", "updated": "2026-02-11", "month": "March"},
+ {"file": "Hutchins_1.pdf", "updated": "2026-02-03", "month": "March"},
+ {"file": "Irving_1.pdf", "updated": "2026-02-03", "month": "March"},
+ {"file": "Irving_2.pdf", "updated": "2026-02-04", "month": "March"},
+ {"file": "Irving_3.pdf", "updated": "2026-02-06", "month": "March"},
+ {"file": "Irving_4.pdf", "updated": "2026-02-11", "month": "March"},
+ {"file": "Lancaster_1.pdf", "updated": "2026-02-03", "month": "March"},
+ {"file": "Lancaster_2.pdf", "updated": "2026-02-04", "month": "March"},
+ {"file": "Lancaster_4.pdf", "updated": "2026-02-11", "month": "March"},
+ {"file": "Mesquite_1.pdf", "updated": "2026-02-03", "month": "March"},
+ {"file": "Mesquite_2.pdf", "updated": "2026-02-04", "month": "March"},
+ {"file": "Mesquite_3.pdf", "updated": "2026-02-06", "month": "March"},
+ {"file": "Mesquite_4.pdf", "updated": "2026-02-11", "month": "March"},
+ {"file": "Other_1.pdf", "updated": "2026-02-03", "month": "March"},
+ {"file": "Other_2.pdf", "updated": "2026-02-04", "month": "March"},
+ {"file": "Other_3.pdf", "updated": "2026-02-06", "month": "March"},
+ {"file": "Other_4.pdf", "updated": "2026-02-11", "month": "March"},
+ {"file": "Richardson_3.pdf", "updated": "2026-02-06", "month": "March"},
+ {"file": "Richardson_4.pdf", "updated": "2026-02-11", "month": "March"},
+ {"file": "Rowlett_1.pdf", "updated": "2026-02-03", "month": "March"},
+ {"file": "Rowlett_2.pdf", "updated": "2026-02-04", "month": "March"},
+ {"file": "Sachse_3.pdf", "updated": "2026-02-06", "month": "March"},
+ {"file": "Sachse_4.pdf", "updated": "2026-02-11", "month": "March"},
+ {"file": "Seagoville_4.pdf", "updated": "2026-02-11", "month": "March"},
+ {"file": "Wilmer_2.pdf", "updated": "2026-02-04", "month": "March"},
+ {"file": "Wylie_2.pdf", "updated": "2026-02-04", "month": "March"},
+ {"file": "Addison_1.pdf", "updated": "2026-02-17", "month": "April"},
+ {"file": "Balch-Springs_1.pdf", "updated": "2026-02-17", "month": "April"},
+ {"file": "Balch-Springs_2.pdf", "updated": "2026-03-02", "month": "April"},
+ {"file": "Cedar-Hill_1.pdf", "updated": "2026-02-17", "month": "April"},
+ {"file": "Cedar-Hill_2.pdf", "updated": "2026-03-02", "month": "April"},
+ {"file": "Dallas_1 (1).pdf", "updated": "2026-02-17", "month": "April"},
+ {"file": "Dallas_1 (2).pdf", "updated": "2026-02-17", "month": "April"},
+ {"file": "Dallas_2.pdf", "updated": "2026-03-02", "month": "April"},
+ {"file": "DeSoto_1.pdf", "updated": "2026-02-17", "month": "April"},
+ {"file": "DeSoto_2.pdf", "updated": "2026-03-02", "month": "April"},
+ {"file": "Duncanville_1.pdf", "updated": "2026-02-17", "month": "April"},
+ {"file": "Duncanville_2.pdf", "updated": "2026-03-02", "month": "April"},
+ {"file": "Garland_1.pdf", "updated": "2026-02-17", "month": "April"},
+ {"file": "Garland_2.pdf", "updated": "2026-03-02", "month": "April"},
+ {"file": "Glenn-Heights_1.pdf", "updated": "2026-02-17", "month": "April"},
+ {"file": "Glenn-Heights_2.pdf", "updated": "2026-03-02", "month": "April"},
+ {"file": "Grand-Prairie_1.pdf", "updated": "2026-02-17", "month": "April"},
+ {"file": "Grand-Prairie_2.pdf", "updated": "2026-03-02", "month": "April"},
+ {"file": "Irving_1.pdf", "updated": "2026-02-17", "month": "April"},
+ {"file": "Irving_2.pdf", "updated": "2026-03-02", "month": "April"},
+ {"file": "Lancaster_1.pdf", "updated": "2026-02-17", "month": "April"},
+ {"file": "Lancaster_2.pdf", "updated": "2026-03-02", "month": "April"},
+ {"file": "Mesquite_1.pdf", "updated": "2026-02-17", "month": "April"},
+ {"file": "Mesquite_2.pdf", "updated": "2026-03-02", "month": "April"},
+ {"file": "Other_1.pdf", "updated": "2026-02-17", "month": "April"},
+ {"file": "Other_2.pdf", "updated": "2026-03-02", "month": "April"},
+ {"file": "Rowlett_1.pdf", "updated": "2026-02-17", "month": "April"},
+ {"file": "Rowlett_2.pdf", "updated": "2026-03-02", "month": "April"},
+ {"file": "Sachse_1.pdf", "updated": "2026-02-17", "month": "April"},
+ {"file": "Sachse_2.pdf", "updated": "2026-03-02", "month": "April"},
+ {"file": "Seagoville_1.pdf", "updated": "2026-02-17", "month": "April"},
+ {"file": "Seagoville_2.pdf", "updated": "2026-03-02", "month": "April"},
+ {"file": "Dallas_1.pdf", "updated": "2026-03-17", "month": "May"},
+ {"file": "Glenn-Heights_1.pdf", "updated": "2026-03-17", "month": "May"},
+ {"file": "Mesquite_1.pdf", "updated": "2026-03-17", "month": "May"},
+ {"file": "Rowlett_1.pdf", "updated": "2026-03-17", "month": "May"}
 ];
 const countyMedia = 'https://www.dallascounty.org/department/countyclerk/media/foreclosure/';
 const cityOf = packet => packet.file.split('_')[0].replaceAll('-', ' ');
@@ -526,31 +252,73 @@ function renderArchive() {
 }
 cityFilter.onchange = monthFilter.onchange = renderArchive;
 renderArchive();
+
+// Research leads. Add beds, baths and notice when known.
 const rows=[
  {id:'26433500080170000',street:'1001 McDonald Drive',city:'Garland',zip:'75041',value:301200,area:1785,year:1962,beds:3,baths:2,source:'https://plotcipher.com/property/1001-mcdonald-dr-garland-tx-75041-garland',sale:'2026-12-01'},
  {id:'36074500110100000',street:'1014 Nancy Lane',city:'Lancaster',zip:'75134',value:244680,area:1445,year:1978,beds:3,baths:2,source:'https://plotcipher.com/property/1014-nancy-ln-lancaster-tx-75134-lancaster',notice:'https://dallas.tx.publicsearch.us/doc/332163498',sale:'2026-12-01'}
 ];
+const SCREEN=.7; // screening price = 70% of county value, before repairs
 const byId=id=>document.getElementById(id);
 const money=value=>value.toLocaleString('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0});
+const pct=(value,digits=1)=>(value*100).toFixed(digits)+'%';
 const plural=(n,word)=>n+' '+word+(n===1?'':'s');
+const ppsf=r=>r.value/r.area;
 const saleDate=r=>new Date(r.sale+'T12:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
 function load(key,fallback){try{return JSON.parse(localStorage.getItem('parcel-desk-'+key))??fallback}catch{return fallback}}
 function persist(key,value){try{localStorage.setItem('parcel-desk-'+key,JSON.stringify(value))}catch{}}
-let saved=new Set(load('saved',[])), worksheets=load('estimates',{}),watchOnly=false,active;
+let saved=new Set(load('saved',[])), worksheets=load('estimates',{}),watchOnly=false,active,mode='flip';
+
+// Texas sells on the first Tuesday, or Wednesday when that Tuesday is Jan 1 or July 4.
+function nextSale(now=new Date()){
+ for(let m=0;m<3;m++){
+  const d=new Date(now.getFullYear(),now.getMonth()+m,1);
+  while(d.getDay()!==2)d.setDate(d.getDate()+1);
+  if((d.getMonth()===0&&d.getDate()===1)||(d.getMonth()===6&&d.getDate()===4))d.setDate(d.getDate()+1);
+  const close=new Date(d);close.setHours(16);
+  if(close>now)return d;
+ }
+}
+byId('nextSale').textContent=nextSale().toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric',year:'numeric'});
+
 function render(){
  const q=byId('query').value.trim().toLowerCase(),order=byId('sort').value;
- const results=rows.filter(r=>(!watchOnly||saved.has(r.id))&&[r.street,r.city,r.zip].join(' ').toLowerCase().includes(q)).sort((a,b)=>order==='city'?a.city.localeCompare(b.city):order==='low'?a.value-b.value:b.value-a.value);
- byId('count').textContent=results.length+' of '+rows.length+' research leads · Third-party sale dates await county confirmation';
+ const results=rows.filter(r=>(!watchOnly||saved.has(r.id))&&[r.street,r.city,r.zip].join(' ').toLowerCase().includes(q)).sort((a,b)=>order==='city'?a.city.localeCompare(b.city):order==='low'?a.value-b.value:order==='ppsf'?ppsf(a)-ppsf(b):b.value-a.value);
+ byId('count').textContent=results.length+' of '+rows.length+' leads · Sale dates come from third-party listings until confirmed against a county filing';
  byId('all').setAttribute('aria-pressed',String(!watchOnly));byId('watch').setAttribute('aria-pressed',String(watchOnly));byId('watch').textContent='Watchlist ('+saved.size+')';
- byId('cards').innerHTML=results.map(r=>`<article><div class="rowtop"><span class="label">Trustee sale</span><button class="save" data-save="${r.id}" aria-pressed="${saved.has(r.id)}" aria-label="${saved.has(r.id)?'Remove':'Save'} ${r.street}">${saved.has(r.id)?'✓ Saved':'+ Save'}</button></div><h3>${r.street}</h3><div class="muted">${r.city}, TX ${r.zip}</div><div class="facts"><div><small>County value · 2026</small><b>${money(r.value)}</b></div><div><small>Living area</small><b>${r.area.toLocaleString('en-US')} ft²</b></div><div><small>Built</small><b>${r.year}</b></div></div><div class="bottom"><span>Listed sale · ${saleDate(r)}</span><button class="primary" data-detail="${r.id}">Research property</button></div></article>`).join('')||'<div class="panel empty"><p>'+ (watchOnly&&!saved.size?'Save a property to start your watchlist.':'No properties match this search.')+'</p></div>';
+ byId('cards').innerHTML=results.map(r=>`<article><div class="rowtop"><span class="label">Trustee sale · ${saleDate(r)}</span><button class="save" data-save="${r.id}" aria-pressed="${saved.has(r.id)}" aria-label="${saved.has(r.id)?'Remove':'Save'} ${r.street}">${saved.has(r.id)?'✓ Saved':'+ Save'}</button></div><h3>${r.street}</h3><div class="muted">${r.city}, TX ${r.zip}${r.beds?' · '+r.beds+' bd':''}${r.baths?' · '+r.baths+' ba':''}</div><div class="facts"><div><small>County value · 2026</small><b>${money(r.value)}</b></div><div><small>Per ft²</small><b>${money(ppsf(r))}</b></div><div><small>Living area</small><b>${r.area.toLocaleString('en-US')} ft²</b></div><div><small>Built</small><b>${r.year}</b></div></div><div class="screen"><div class="row"><span>Screening price · 70% of county value</span><b>${money(r.value*SCREEN)}</b></div><div class="track" role="img" aria-label="70 percent of county value"><i style="width:70%;background:#234b3c"></i></div><small>A rough starting point. Subtract repairs to get closer to a real bid.</small></div><div class="bottom"><span>${r.notice?'County notice found':'County notice not yet found'}</span><button class="primary" data-detail="${r.id}">Run the numbers</button></div></article>`).join('')||'<div class="panel empty"><p>'+ (watchOnly&&!saved.size?'Save a property to start your watchlist.':'No properties match this search.')+'</p></div>';
 }
 byId('query').oninput=render;byId('sort').onchange=render;
 byId('watch').onclick=()=>{watchOnly=true;render()};byId('all').onclick=()=>{watchOnly=false;render()};
 byId('cards').onclick=e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.save){const id=b.dataset.save;saved.has(id)?saved.delete(id):saved.add(id);persist('saved',[...saved]);render();(document.querySelector('[data-save="'+id+'"]')||byId('watch')).focus();}else openDetail(rows.find(r=>r.id===b.dataset.detail))};
-const sheet=byId('sheet');
-function updateSheet(){const inputs=[...sheet.elements];const valid=inputs.every(i=>i.value!==''&&i.validity.valid);const [resale,repairs,costs,profit]=inputs.map(i=>i.valueAsNumber);const bid=resale-repairs-costs-profit;byId('ceiling').textContent=!valid?'Enter all four amounts to calculate a bid ceiling.':bid<0?'Your costs and target profit exceed estimated proceeds by '+money(-bid)+'.':'Estimated bid ceiling · '+money(bid)}
-function openDetail(r){active=r;byId('title').textContent=r.street;byId('info').innerHTML=`<p>${r.city}, TX ${r.zip} · Single-family residence<br>${[r.beds&&plural(r.beds,'bedroom'),r.baths&&plural(r.baths,'bathroom'),'Built '+r.year].filter(Boolean).join(' · ')}</p><p>Third-party sale date <b>${saleDate(r)}</b><br>Opening bid <b>Unconfirmed</b><br>2026 DCAD certified market value <b>${money(r.value)}</b></p><div class="sources"><a href="${r.source}">Third-party sale listing</a><a href="${r.notice||'https://dallas.tx.publicsearch.us/'}">${r.notice?'Filed notice':'Search county filings'}</a><a href="https://www.dallascad.org/AcctDetailRes.aspx?ID=${r.id}">DCAD parcel</a><a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(r.street+', '+r.city+' TX '+r.zip)}">Map</a></div>`;for(const i of sheet.elements)i.value=worksheets[r.id]?.[i.name]??'';updateSheet();byId('detail').showModal()}
-sheet.oninput=()=>{worksheets[active.id]=Object.fromEntries(new FormData(sheet));persist('estimates',worksheets);updateSheet()};sheet.onsubmit=e=>e.preventDefault();byId('close').onclick=()=>byId('detail').close();render();
+
+const sheet=byId('sheet'),rentSheet=byId('rentSheet');
+const filled=form=>[...form.elements].every(i=>i.value!==''&&i.validity.valid);
+const values=form=>Object.fromEntries([...form.elements].map(i=>[i.name,i.valueAsNumber]));
+const bar=parts=>{const total=parts.reduce((s,p)=>s+p.v,0)||1;return `<div class="track" role="img" aria-label="${parts.map(p=>p.name+' '+money(p.v)).join(', ')}">${parts.map(p=>`<i style="width:${p.v/total*100}%;background:${p.c}"></i>`).join('')}</div><ul class="legend">${parts.map(p=>`<li><i style="background:${p.c}"></i>${p.name} ${money(p.v)}</li>`).join('')}</ul>`};
+function flipResult(){
+ byId('formula').textContent='Bid ceiling = resale price − repairs − other costs − target profit.';
+ if(!filled(sheet))return 'Enter all four amounts to see your bid ceiling.';
+ const {resale,repairs,costs,profit}=values(sheet),bid=resale-repairs-costs-profit;
+ if(bid<0)return `<div class="big bad">No room to bid</div><div class="sub">Costs and target profit exceed the resale price by ${money(-bid)}.</div>`;
+ return `<div class="big">Bid ceiling · ${money(bid)}</div><div class="sub">${pct(bid/active.value,0)} of the county value. Where each resale dollar goes:</div>`+bar([{name:'Your bid',v:bid,c:'#234b3c'},{name:'Repairs',v:repairs,c:'#ba7927'},{name:'Other costs',v:costs,c:'#8aa27b'},{name:'Profit',v:profit,c:'#e2bf63'}])+`<div class="kpis"><div><small>Profit on cash in</small><b>${bid+repairs+costs>0?pct(profit/(bid+repairs+costs)):'n/a'}</b></div><div><small>Profit margin on resale</small><b>${resale>0?pct(profit/resale):'n/a'}</b></div><div><small>Vs. 70% screen</small><b class="${bid<=active.value*SCREEN?'good':'bad'}">${bid<=active.value*SCREEN?'At or under':'Over'}</b></div></div>`;
+}
+function rentResult(){
+ byId('formula').textContent='Assumes an all-cash purchase with no loan. Net income = rent, less vacancy and upkeep, property tax and insurance. Cap rate = yearly net income ÷ (bid + repairs).';
+ if(!filled(rentSheet))return 'Enter all six amounts to see cash flow and return.';
+ const {price,rehab,rent,tax,insurance,reserve}=values(rentSheet),cash=price+rehab;
+ if(cash<=0)return 'Enter a bid above zero.';
+ const gross=rent*12,hold=gross*reserve/100,noi=gross-hold-tax-insurance,cap=noi/cash,ratio=rent/cash;
+ const head=noi<0?`<div class="big bad">Loses ${money(-noi/12)} a month</div>`:`<div class="big">${money(noi/12)} a month · ${pct(cap)} cap rate</div>`;
+ return head+`<div class="sub">On ${money(cash)} of cash in. Where each rent dollar goes over a year:</div>`+bar([{name:'Vacancy & upkeep',v:hold,c:'#ba7927'},{name:'Property tax',v:tax,c:'#8aa27b'},{name:'Insurance',v:insurance,c:'#e2bf63'},{name:'You keep',v:Math.max(noi,0),c:'#234b3c'}])+`<div class="kpis"><div><small>Net income per year</small><b class="${noi<0?'bad':''}">${money(noi)}</b></div><div><small>Years to earn cash back</small><b>${noi>0?(cash/noi).toFixed(1):'n/a'}</b></div><div><small>Rent ÷ cash in (1% rule)</small><b class="${ratio>=.01?'good':'bad'}">${pct(ratio,2)}</b></div></div>`;
+}
+function updateSheet(){byId('result').innerHTML=mode==='flip'?flipResult():rentResult()}
+function setMode(next){mode=next;sheet.hidden=mode!=='flip';rentSheet.hidden=mode!=='rent';byId('tabFlip').setAttribute('aria-selected',String(mode==='flip'));byId('tabRent').setAttribute('aria-selected',String(mode==='rent'));updateSheet()}
+byId('tabFlip').onclick=()=>setMode('flip');byId('tabRent').onclick=()=>setMode('rent');
+function openDetail(r){active=r;byId('title').textContent=r.street;byId('info').innerHTML=`<p>${r.city}, TX ${r.zip} · Single-family residence<br>${[r.beds&&plural(r.beds,'bedroom'),r.baths&&plural(r.baths,'bathroom'),r.area.toLocaleString('en-US')+' ft²','Built '+r.year].filter(Boolean).join(' · ')}</p><p>Third-party sale date <b>${saleDate(r)}</b> · Opening bid <b>Unconfirmed</b><br>2026 DCAD certified market value <b>${money(r.value)}</b> (${money(ppsf(r))} per ft²)</p><div class="sources"><a href="${r.source}">Third-party sale listing</a><a href="${r.notice||'https://dallas.tx.publicsearch.us/'}">${r.notice?'Filed notice':'Search county filings'}</a><a href="https://www.dallascad.org/AcctDetailRes.aspx?ID=${r.id}">DCAD parcel</a><a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(r.street+', '+r.city+' TX '+r.zip)}">Map</a></div>`;const w=worksheets[r.id]||{};for(const i of [...sheet.elements,...rentSheet.elements])i.value=w[i.name]??'';sheet.elements.resale.placeholder='County value '+Math.round(r.value);setMode(mode);byId('detail').showModal()}
+function saveSheet(){worksheets[active.id]={...Object.fromEntries(new FormData(sheet)),...Object.fromEntries(new FormData(rentSheet))};persist('estimates',worksheets);updateSheet()}
+sheet.oninput=rentSheet.oninput=saveSheet;sheet.onsubmit=rentSheet.onsubmit=e=>e.preventDefault();byId('close').onclick=()=>byId('detail').close();render();
+
 // Draw a conceptual residential site plan in the masthead.
 const canvas=document.querySelector('canvas'),ctx=canvas.getContext('2d');
 function drawPlan(){const w=canvas.clientWidth,h=canvas.clientHeight,d=devicePixelRatio||1;canvas.width=w*d;canvas.height=h*d;ctx.setTransform(d,0,0,d,0,0);ctx.translate(w*.51,h*.52);ctx.scale(w/470,w/470);ctx.rotate(-.28);ctx.lineWidth=1;

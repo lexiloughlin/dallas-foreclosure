@@ -2,20 +2,27 @@
 
 **Live site: https://lexiloughlin.github.io/dallas-foreclosure/**
 
-A single-page research tool for Dallas County, Texas foreclosure auctions. It pulls the public records a bidder needs into one place: county notice packets, a short watchlist of residential leads, and a worksheet for working out a maximum bid.
+A single-page research tool for people looking to buy investment property at Dallas County, Texas foreclosure auctions. It puts the leads, the math and the auction rules in one place so an investor can set a walk-away price before sale day.
 
 ## What it does
 
-- **County foreclosure notices.** A filterable index of 98 Dallas County Clerk notice packets (PDFs) for the March, April and May 2026 sales, covering 23 cities. Filter by city or month and open the county's own PDF.
-- **Property research watchlist.** Research leads shown as cards with the 2026 county appraisal value, living area, year built and listed sale date. Search by address, city or ZIP, sort by city or value, and save properties to a watchlist.
+- **Deals to size up.** Research leads shown as cards with the 2026 county appraisal value, price per square foot, living area, year built and listed sale date. Each card shows a screening price (70% of county value) as a rough starting point. Search by address, city or ZIP, sort by value or price per square foot, and save properties to a watchlist.
+- **Run the numbers.** Each lead opens a deal analysis with two strategies:
+  - *Fix & flip:* enter resale price, repairs, other costs and target profit to get a bid ceiling, with a bar showing where each resale dollar goes.
+
+    ```
+    bid ceiling = resale price − repairs − other costs − target profit
+    ```
+  - *Buy & rent:* enter your bid, repairs, rent, property tax, insurance and a vacancy/upkeep allowance to get monthly cash flow, cap rate, payback years and the 1% rule check. It assumes an all-cash purchase with no loan.
+
+    ```
+    cap rate = (yearly rent − vacancy & upkeep − property tax − insurance) ÷ (bid + repairs)
+    ```
+- **Auction guide.** The four steps from notice to keys, the next sale day (calculated from the first-Tuesday rule), where the sale is held, and the main risks: as-is sales, surviving liens, cancelled sales, and redemption rights after tax and HOA sales.
+- **County foreclosure notices.** A filterable index of 98 Dallas County Clerk notice packets (PDFs) for the March, April and May 2026 sales, covering 23 cities.
 - **Property detail.** Each lead links out to the third-party sale listing, the filed notice (when one has been found), the Dallas Central Appraisal District parcel page and a map.
-- **Bid worksheet.** Enter expected resale price, repairs, closing/holding/selling costs and target profit. The page calculates a bid ceiling:
 
-  ```
-  bid ceiling = resale price − repairs − other costs − target profit
-  ```
-
-Saved properties and worksheet numbers are kept in your browser (localStorage), so they stay on your device and persist between visits.
+Saved properties and both worksheets are kept in your browser (localStorage), so they stay on your device and persist between visits.
 
 ## Data and its limits
 
@@ -24,6 +31,8 @@ Saved properties and worksheet numbers are kept in your browser (localStorage), 
 | Notice packets | [Dallas County Clerk foreclosure index](https://www.dallascounty.org/government/county-clerk/recording/foreclosures.php) | Archive of March–May 2026 sales. These sale dates have passed, and a filing does not show whether a property sold. |
 | Research leads | Third-party sale listings | Snapshot from Nov 19, 2026. Sale dates are unverified until confirmed against a county filing. Opening bids are unconfirmed. |
 | Property values | [Dallas Central Appraisal District](https://www.dallascad.org/) | 2026 certified market value. |
+
+The auction rules in the guide come from [Texas Property Code ch. 51](https://statutes.capitol.texas.gov/Docs/PR/pdf/PR.51.pdf) and the County Clerk's foreclosure page.
 
 The data is a hand-built snapshot, not a live feed. For current auctions, use the [county filing search](https://dallas.tx.publicsearch.us/) (choose **Foreclosures**, then filter by sale date or city). Tax sales run separately through the [sheriff's auction platform](https://dallas.texas.sheriffsaleauctions.com/).
 
@@ -48,6 +57,7 @@ open index.html
 
 ## Possible next steps
 
+- Add more leads (there are two so far)
 - Confirm each lead's sale date against a county filing and show verified vs. unverified on the card
 - Add current-month packets alongside the archive
 - Map view of leads by city
